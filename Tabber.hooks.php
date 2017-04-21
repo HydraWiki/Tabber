@@ -38,7 +38,7 @@ class TabberHooks {
 		$parser->getOutput()->addModules('ext.Tabber');
 
 		$key = md5($input);
-		$arr = explode("|-|", $input);
+		$arr = explode("\\-\\", $input);
 		$htmlTabs = '';
 		foreach ($arr as $tab) {
 			$htmlTabs .= self::buildTab($tab, $parser, $frame);
@@ -66,7 +66,8 @@ class TabberHooks {
 
 		list($tabName, $tabBody) = explode('=', $tab, 2);
 		$tabBody = $parser->recursiveTagParse($tabBody, $frame);
-
+		$tabName = $parser->recursiveTagParse($tabName, $frame);
+		
 		$tab = '
 			<div class="tabbertab" title="'.htmlspecialchars($tabName).'">
 				<p>'.$tabBody.'</p>
