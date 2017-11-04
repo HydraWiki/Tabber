@@ -35,7 +35,11 @@
 			nav.on('click', 'a', function(e) {
 				var title = $(this).attr('title');
 				e.preventDefault();
-				location.hash = '#' + title;
+				if (history.pushState) {
+					history.pushState(null, null, '#' + title);
+				} else {
+					location.hash = '#' + title;
+				}
 				showContent( title );
 			});
 
