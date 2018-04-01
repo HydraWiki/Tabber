@@ -3,7 +3,7 @@ ul.tabbernav {
     padding: 3px 0;
     border-bottom: 1px solid #CCC;
     font: bold 12px Verdana, sans-serif;
-    line-height: 26px
+    line-height: 26px;
 }
 
 ul.tabbernav li {
